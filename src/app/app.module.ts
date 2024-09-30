@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { FilsComponent } from './components/fils/fils.component';
 import { PereComponent } from './components/pere/pere.component';
+import { CvComponent } from './cv/cv/cv.component';
+import { CvListComponent } from './cv/cv-list/cv-list.component';
+import { CvItemComponent } from './cv/cv-item/cv-item.component';
+import { CvCardComponent } from './cv/cv-card/cv-card.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -23,7 +27,11 @@ import { PereComponent } from './components/pere/pere.component';
     TwoWayComponent,
     RotatingCardComponent,
     FilsComponent,
-    PereComponent
+    PereComponent,
+    CvComponent,
+    CvListComponent,
+    CvItemComponent,
+    CvCardComponent
   ],
   imports: [
     BrowserModule,
