@@ -9,6 +9,8 @@ import { ColorComponent } from './components/color/color.component';
 import { TwoWayComponent } from './components/two-way/two-way.component';
 import { FormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
+import { FilsComponent } from './components/fils/fils.component';
+import { PereComponent } from './components/pere/pere.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -19,7 +21,9 @@ import { RotatingCardComponent } from './components/rotating-card/rotating-card.
     SecondComponent,
     ColorComponent,
     TwoWayComponent,
-    RotatingCardComponent
+    RotatingCardComponent,
+    FilsComponent,
+    PereComponent
   ],
   imports: [
     BrowserModule,

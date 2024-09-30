@@ -1,0 +1,20 @@
+<p [hidden]="true">pere works!</p>
+
+<!-- <ol>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+  <li>1</li>
+</ol> -->
+
+<div class="alert alert-success">
+  <app-fils (sendDataToDad)="onSendDataToDad($event)" [messageDePapa]="'je t aime fiston'" />
+  <app-fils (sendDataToDad)="onSendDataToDad($event)" [messageDePapa]="'cc'" />
+  <app-fils (sendDataToDad)="onSendDataToDad($event)" [messageDePapa]="message" />
+</div>
