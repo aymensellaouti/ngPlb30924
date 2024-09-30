@@ -9,7 +9,9 @@ import { Cv } from '../model/cv.model';
 export class CvComponent {
   // Je suis le smart component je suis le boss je réfléchi
   // Je dois tout d'abord fournir la liste des cvs
-
+  /**
+   * La liste des cvs à afficher
+   */
   cvs: Cv[] = [
     new Cv(
       1,
@@ -39,4 +41,13 @@ export class CvComponent {
       22
     ),
   ];
+
+  /**
+   * Le cv sélectionné
+   */
+  selectedCv: Cv | null = null;
+
+  onSelectCv(cv: Cv) {
+    this.selectedCv = cv;
+  }
 }
