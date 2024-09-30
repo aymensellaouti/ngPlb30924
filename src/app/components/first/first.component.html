@@ -1,2 +1,18 @@
-<p>first works!</p>
+
+<!-- Attributs => state (état) -->
+
+
+<!-- événements => comportements -->
+<p #leNomDeLelement [hidden]="isHidden"> {{name}} works!</p>
+
+<button (click)="showHide()" class="btn btn-danger">
+  show / hide
+</button>
+
+<input
+  #myInput
+  (change)="changeMessage(myInput.value)" type="text" class="form-control">
+
+<p>Le contenu de l'input est : {{ message }}</p>
+
 <app-second />
