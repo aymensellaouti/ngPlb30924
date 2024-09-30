@@ -8,6 +8,7 @@ import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwoWayComponent } from './components/two-way/two-way.component';
 import { FormsModule } from '@angular/forms';
+import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     FirstComponent,
     SecondComponent,
     ColorComponent,
-    TwoWayComponent
+    TwoWayComponent,
+    RotatingCardComponent
   ],
   imports: [
     BrowserModule,
