@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
+import { TwoWayComponent } from './components/two-way/two-way.component';
+import { FormsModule } from '@angular/forms';
 
 // Définir notre context de compilation
 @NgModule({
@@ -14,11 +16,13 @@ import { ColorComponent } from './components/color/color.component';
     AppComponent,
     FirstComponent,
     SecondComponent,
-    ColorComponent
+    ColorComponent,
+    TwoWayComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   // déclenchement du premier composant
