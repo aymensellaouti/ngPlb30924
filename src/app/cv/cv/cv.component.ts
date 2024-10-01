@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { LoggerService } from 'src/app/services/logger.service';
 import { SayHelloService } from 'src/app/services/say-hello.service';
+import { TodoService } from 'src/app/todo/service/todo.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
@@ -52,12 +54,16 @@ export class CvComponent {
    */
   selectedCv: Cv | null = null;
   loggerService = inject(LoggerService);
-  helloService =  inject(SayHelloService);
+  helloService = inject(SayHelloService);
+  todoService = inject(TodoService);
+  toastr = inject(ToastrService);
   constructor() {
     this.helloService.hello();
     this.loggerService.logger('cc je suis le cvComponent');
+    this.toastr.info('Hello CvComponent');
   }
   onSelectCv(cv: Cv) {
     this.selectedCv = cv;
+    this.todoService.logTodos();
   }
 }
