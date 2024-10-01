@@ -29,6 +29,8 @@ import { LoggerService } from './services/logger.service';
 import { TodoComponent } from './todo/todo/todo.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -55,6 +57,7 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
     RainbowDirective,
     TodoComponent,
     WeekTodoComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+
   ],
   providers: [],
   // déclenchement du premier composant
