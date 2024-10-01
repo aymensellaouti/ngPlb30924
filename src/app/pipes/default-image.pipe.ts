@@ -1,12 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { APP_CONST } from '../config/app-constantes.config';
 
 @Pipe({
   name: 'defaultImage'
 })
 export class DefaultImagePipe implements PipeTransform {
-
-  transform(elementAPiper: unknown, monArgument: string): unknown {
-    return null;
+  transform(path: string): string {
+    return path.trim() ? path : APP_CONST.defaultImage;
   }
-
 }
