@@ -7,6 +7,8 @@ import { Cv } from '../model/cv.model';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
+
+  today = new Date();
   // Je suis le smart component je suis le boss je réfléchi
   // Je dois tout d'abord fournir la liste des cvs
   /**
@@ -18,7 +20,7 @@ export class CvComponent {
       'sellaouti',
       'aymen',
       'teacher',
-      'as.jpg',
+      '           ',
       '1234',
       42
     ),
@@ -27,7 +29,7 @@ export class CvComponent {
       'Lharras',
       'Yousra',
       'Dev',
-      'rotating_card_profile.png',
+      '',
       '12345',
       20
     ),
