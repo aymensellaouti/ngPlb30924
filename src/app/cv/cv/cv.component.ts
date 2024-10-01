@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { LoggerService } from 'src/app/services/logger.service';
+import { SayHelloService } from 'src/app/services/say-hello.service';
 
 @Component({
   selector: 'app-cv',
@@ -7,7 +9,6 @@ import { Cv } from '../model/cv.model';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
-
   today = new Date();
   // Je suis le smart component je suis le boss je réfléchi
   // Je dois tout d'abord fournir la liste des cvs
@@ -15,24 +16,8 @@ export class CvComponent {
    * La liste des cvs à afficher
    */
   cvs: Cv[] = [
-    new Cv(
-      1,
-      'sellaouti',
-      'aymen',
-      'teacher',
-      '           ',
-      '1234',
-      42
-    ),
-    new Cv(
-      2,
-      'Lharras',
-      'Yousra',
-      'Dev',
-      '',
-      '12345',
-      20
-    ),
+    new Cv(1, 'sellaouti', 'aymen', 'teacher', '           ', '1234', 42),
+    new Cv(2, 'Lharras', 'Yousra', 'Dev', '', '12345', 20),
     new Cv(
       3,
       'Sainnier',
@@ -66,7 +51,12 @@ export class CvComponent {
    * Le cv sélectionné
    */
   selectedCv: Cv | null = null;
-
+  loggerService = inject(LoggerService);
+  helloService =  inject(SayHelloService);
+  constructor() {
+    this.helloService.hello();
+    this.loggerService.logger('cc je suis le cvComponent');
+  }
   onSelectCv(cv: Cv) {
     this.selectedCv = cv;
   }
