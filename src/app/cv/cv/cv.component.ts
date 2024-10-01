@@ -18,7 +18,7 @@ export class CvComponent {
       'sellaouti',
       'aymen',
       'teacher',
-      'rotating_card_profile2.png',
+      'as.jpg',
       '1234',
       42
     ),
@@ -32,11 +32,29 @@ export class CvComponent {
       20
     ),
     new Cv(
-      2,
+      3,
       'Sainnier',
       'Sylvain',
       'Dev',
       'rotating_card_profile3.png',
+      '123456',
+      22
+    ),
+    new Cv(
+      4,
+      'Fouhety',
+      'Kevin',
+      'Dev',
+      'rotating_card_profile2.png',
+      '123456',
+      22
+    ),
+    new Cv(
+      5,
+      'Medmad',
+      'Safae',
+      'Dev',
+      'rotating_card_profile.png',
       '123456',
       22
     ),
