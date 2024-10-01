@@ -24,6 +24,7 @@ import { DefaultImagePipe } from './pipes/default-image.pipe';
 import { LoggerService } from './services/logger.service';
 import { TodoComponent } from './todo/todo/todo.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -41,12 +42,13 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
     CvListComponent,
     CvItemComponent,
     CvCardComponent,
+    EmbaucheComponent,
+    DefaultImagePipe,
     NgStyleComponent,
     MiniWordComponent,
     LampeComponent,
     HighlightDirective,
     RainbowDirective,
-    DefaultImagePipe,
     TodoComponent,
     WeekTodoComponent
   ],
