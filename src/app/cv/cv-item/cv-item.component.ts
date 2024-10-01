@@ -12,7 +12,7 @@ export class CvItemComponent {
     required: true
   })
   cv!: Cv;
-
+  @Input() size = 50;
   @Output()
   selectCv = new EventEmitter<Cv>();
 
