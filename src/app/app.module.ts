@@ -32,6 +32,7 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
+import { NF404Component } from './components/nf404/nf404.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -60,6 +61,7 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
     TodoComponent,
     WeekTodoComponent,
     NavbarComponent,
+    NF404Component,
   ],
   imports: [
     BrowserModule,
