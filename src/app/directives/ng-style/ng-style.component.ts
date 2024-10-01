@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ng-style',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NgStyleComponent {
   bgc = 'yellow';
+  @Input()
   style = {
     color: 'red',
     backgroundColor: 'yellow',
