@@ -33,6 +33,7 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
+import { TestFormComponent } from './forms/test-form/test-form.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -62,6 +63,7 @@ import { NF404Component } from './components/nf404/nf404.component';
     WeekTodoComponent,
     NavbarComponent,
     NF404Component,
+    TestFormComponent,
   ],
   imports: [
     BrowserModule,
