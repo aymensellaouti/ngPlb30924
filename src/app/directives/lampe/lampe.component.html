@@ -7,5 +7,7 @@
   class="lampe">lampe</div>
 
   <div appHighlight>tester directive</div>
-  <div appHighlight [in]="'pink'" [out]="'gold'">tester directive</div>
-  <div appHighlight [in]="'lightblue'" [out]="'white'">tester directive</div>
+  <div appRainbow appHighlight [in]="'pink'" [out]="'gold'">tester directive</div>
+  <div appRainbow appHighlight [in]="'lightblue'" [out]="'white'">tester directive</div>
+
+  <input type="text" appRainbow>
