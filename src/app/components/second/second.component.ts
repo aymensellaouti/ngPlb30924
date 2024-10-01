@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-second',
@@ -9,4 +10,6 @@ import { Component } from '@angular/core';
   `,
   styles: [``],
 })
-export class SecondComponent {}
+export class SecondComponent {
+  activatedRoute = inject(ActivatedRoute);
+}

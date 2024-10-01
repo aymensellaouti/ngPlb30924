@@ -31,6 +31,7 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 
 // Définir notre context de compilation
 @NgModule({
@@ -49,6 +50,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CvItemComponent,
     CvCardComponent,
     EmbaucheComponent,
+    DetailsCvComponent,
     DefaultImagePipe,
     NgStyleComponent,
     MiniWordComponent,
