@@ -21,4 +21,16 @@ export class AuthService {
       })
     );
   }
+
+  getToken(): string {
+    return localStorage.getItem(APP_CONST.token) ?? '';
+  }
+
+  logout() {
+    localStorage.removeItem(APP_CONST.token);
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
+  }
 }

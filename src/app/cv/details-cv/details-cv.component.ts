@@ -3,6 +3,7 @@ import { Cv } from "../model/cv.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app-routes.config";
+import { AuthService } from "src/app/auth/services/auth.service";
 
 @Component({
   selector: 'app-details-cv',
@@ -13,9 +14,10 @@ export class DetailsCvComponent {
   acr = inject(ActivatedRoute);
   cvService = inject(CvService);
   router = inject(Router);
+  authService = inject(AuthService);
   // Je récupére le paramètre
   id = this.acr.snapshot.params['id'];
-  cv: Cv | null = null
+  cv: Cv | null = null;
 
   constructor() {
     this.cvService.getCvById(this.id).subscribe({
@@ -24,7 +26,7 @@ export class DetailsCvComponent {
       },
       error: (e) => {
         this.router.navigate([APP_ROUTES.cv]);
-      }
+      },
     });
     // if (!this.cv) {// }
   }
@@ -36,7 +38,7 @@ export class DetailsCvComponent {
         },
         error: (e) => {
           console.log(e);
-        }
+        },
       });
     }
   }

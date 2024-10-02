@@ -1,8 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { Observable, Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { APP_API } from 'src/app/config/app-api.config';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { APP_CONST } from 'src/app/config/app-constantes.config';
 
 @Injectable({
   providedIn: 'root',
@@ -52,6 +54,7 @@ export class CvService {
   selectedCv$ = this.#selectedCvSubject$.asObservable();
 
   http = inject(HttpClient);
+  authService = inject(AuthService);
 
   /**
    * Retourne l'observale de l'appel de l'api pour Récupérer la liste des cvs
@@ -73,7 +76,11 @@ export class CvService {
    * @returns Observable<{count: number}>
    */
   deleteCvById(id: number): Observable<{ count: number }> {
-    return this.http.delete<{ count: number }>(APP_API.cv + id);
+    // CA c'est mal il faut pas faire ca !!!!!!!!!!!!!!!!
+    const token = this.authService.getToken();
+    //const params = new HttpParams().set(APP_CONST.accessToken, token);
+    const headers = new HttpHeaders().set(APP_CONST.authorization, token);
+    return this.http.delete<{ count: number }>(APP_API.cv + id, { headers });
   }
 
   /**
