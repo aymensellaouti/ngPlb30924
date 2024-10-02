@@ -9,11 +9,13 @@ import { SecondComponent } from './components/second/second.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { APP_ROUTES } from './config/app-routes.config';
 import { NF404Component } from './components/nf404/nf404.component';
+import { LoginComponent } from './auth/login/login.component';
 // LES ROUTES GENERIQUES DERONT TOUJOURS ETRE APRES LES ROUTES SPCIFIUQES
 const routes: Routes = [
   { path: '', component: FirstComponent },
   { path: APP_ROUTES.cv, component: CvComponent },
   { path: `${APP_ROUTES.cv}/:id`, component: DetailsCvComponent },
+  { path: APP_ROUTES.login, component: LoginComponent },
   { path: 'todo', component: TodoComponent },
   { path: 'word', component: MiniWordComponent },
   { path: 'color', component: ColorComponent },
