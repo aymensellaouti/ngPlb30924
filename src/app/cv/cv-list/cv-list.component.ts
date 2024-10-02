@@ -11,10 +11,10 @@ export class CvListComponent {
   @Input()
   cvs: Cv[] = [];
 
-  @Output()
-  forwardCv = new EventEmitter<Cv>();
+  // @Output()
+  // forwardCv = new EventEmitter<Cv>();
 
-  onForwardCv(cv: Cv): void {
-    this.forwardCv.emit(cv);
-  }
+  // onForwardCv(cv: Cv): void {
+  //   this.forwardCv.emit(cv);
+  // }
 }
