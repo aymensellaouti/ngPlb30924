@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Cv } from '../model/cv.model';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { APP_API } from 'src/app/config/app-api.config';
 
 @Injectable({
   providedIn: 'root',
@@ -48,11 +50,37 @@ export class CvService {
    * Le flux des cvs sélectionnés Exemple Cv1, Cv3, Cv1, Cv4 ...
    */
   selectedCv$ = this.#selectedCvSubject$.asObservable();
+
+  http = inject(HttpClient);
+
+  /**
+   * Retourne l'observale de l'appel de l'api pour Récupérer la liste des cvs
+   * @returns Observable<Cv[]>
+   */
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(APP_API.cv);
+  }
+
+  /**
+   * Retourne l'observale de l'appel de l'api pour Récupérer le cv par son id
+   * @returns Observable<Cv>
+   */
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cv + id);
+  }
+  /**
+   * Supprime un cv par son id
+   * @returns Observable<{count: number}>
+   */
+  deleteCvById(id: number): Observable<{ count: number }> {
+    return this.http.delete<{ count: number }>(APP_API.cv + id);
+  }
+
   /**
    * Retourne la liste des cvs
    * @returns Cv[]
    */
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.#cvs;
   }
 
@@ -74,7 +102,7 @@ export class CvService {
    * @param cv : Cv
    * @returns boolean
    */
-  deleteCv(cv: Cv): boolean {
+  deleteFakeCv(cv: Cv): boolean {
     const index = this.#cvs.indexOf(cv);
     if (index != -1) {
       this.#cvs.splice(index, 1);

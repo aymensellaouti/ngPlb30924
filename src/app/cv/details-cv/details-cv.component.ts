@@ -18,15 +18,26 @@ export class DetailsCvComponent {
   cv: Cv | null = null
 
   constructor() {
-    this.cv = this.cvService.findCvById(this.id);
-    if (!this.cv) {
-      this.router.navigate([APP_ROUTES.cv]);
-    }
+    this.cvService.getCvById(this.id).subscribe({
+      next: (cv) => {
+        this.cv = cv;
+      },
+      error: (e) => {
+        this.router.navigate([APP_ROUTES.cv]);
+      }
+    });
+    // if (!this.cv) {// }
   }
   delete() {
     if (this.cv) {
-      this.cvService.deleteCv(this.cv);
-      this.router.navigate([APP_ROUTES.cv]);
+      this.cvService.deleteCvById(this.cv.id).subscribe({
+        next: () => {
+          this.router.navigate([APP_ROUTES.cv]);
+        },
+        error: (e) => {
+          console.log(e);
+        }
+      });
     }
   }
   // 1- Définir la route ok

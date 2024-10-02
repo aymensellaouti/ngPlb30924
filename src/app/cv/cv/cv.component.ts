@@ -20,7 +20,7 @@ export class CvComponent {
   /**
    * La liste des cvs à afficher
    */
-  cvs: Cv[] = this.cvService.getCvs();
+  cvs: Cv[] = [];
 
   /**
    * Le cv sélectionné
@@ -38,9 +38,19 @@ export class CvComponent {
     // this.cvService.selectedCv$.subscribe({
     //   next: (cv) => this.selectedCv = cv
     // });
+    this.cvService.getCvs().subscribe({
+      next: (cvs) => {
+        this.cvs = cvs;
+      },
+      error: (e) => {
+        this.toastr.error('Veuillez contacter l admin la liste des cvs est fake, quelque chose c est mal passé')
+        this.cvs = this.cvService.getFakeCvs();
+      }
+    })
   }
   // onSelectCv(cv: Cv) {
   //   this.selectedCv = cv;
   //   this.todoService.logTodos();
   // }
+
 }
