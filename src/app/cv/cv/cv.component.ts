@@ -26,6 +26,11 @@ export class CvComponent {
    * Le cv sélectionné
    */
   selectedCv$: Observable<Cv> = this.cvService.selectedCv$;
+  /**
+   * Le flux des cvs renvoyés par l'api
+   */
+  cvs$: Observable<Cv[]> = this.cvService.getCvs();
+
   loggerService = inject(LoggerService);
   helloService = inject(SayHelloService);
   todoService = inject(TodoService);
