@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand">ATOS</a>
+    <a class="navbar-brand">{{'APP.TITLE' | translate}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,6 +14,14 @@
         <a class="nav-link" routerLinkActive="active text-primary" [routerLink]="['word']">Word</a>
         <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLinkActive="active text-primary" [routerLink]="['login']">Login</a>
         <a *ngIf="authService.isAuthenticated()" class="nav-link" (click)="logout()">Logout</a>
+
+        <button (click)="translate('fr')" class="btn btn-outline-primary">
+          Francais
+        </button>
+        <button (click)="translate('en')" class="btn btn-outline-danger">
+          Anglais
+        </button>
+
       </div>
     </div>
   </div>
