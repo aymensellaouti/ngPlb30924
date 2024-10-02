@@ -5,7 +5,7 @@ import { SayHelloService } from 'src/app/services/say-hello.service';
 import { TodoService } from 'src/app/todo/service/todo.service';
 import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-cv',
@@ -29,7 +29,17 @@ export class CvComponent {
   /**
    * Le flux des cvs renvoyés par l'api
    */
-  cvs$: Observable<Cv[]> = this.cvService.getCvs();
+  cvs$: Observable<Cv[]> = this.cvService
+  .getCvs().pipe(
+    catchError(
+      (e) => {
+        this.toastr.error(
+          'Veuillez contacter l admin la liste des cvs est fake, quelque chose c est mal passé'
+        );
+        return of(this.cvService.getFakeCvs());
+      }
+    )
+  );
 
   loggerService = inject(LoggerService);
   helloService = inject(SayHelloService);
@@ -43,15 +53,15 @@ export class CvComponent {
     // this.cvService.selectedCv$.subscribe({
     //   next: (cv) => this.selectedCv = cv
     // });
-    this.cvService.getCvs().subscribe({
-      next: (cvs) => {
-        this.cvs = cvs;
-      },
-      error: (e) => {
-        this.toastr.error('Veuillez contacter l admin la liste des cvs est fake, quelque chose c est mal passé')
-        this.cvs = this.cvService.getFakeCvs();
-      }
-    })
+    // this.cvService.getCvs().subscribe({
+    //   next: (cvs) => {
+    //     this.cvs = cvs;
+    //   },
+    //   error: (e) => {
+    //     this.toastr.error('Veuillez contacter l admin la liste des cvs est fake, quelque chose c est mal passé')
+    //     this.cvs = this.cvService.getFakeCvs();
+    //   }
+    // })
   }
   // onSelectCv(cv: Cv) {
   //   this.selectedCv = cv;
