@@ -1,6 +1,8 @@
 import { Component, inject } from "@angular/core";
 import { Todo } from "../model/todo";
 import { TodoService } from "../service/todo.service";
+import { TodoDto } from "../dto/todo.dto";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-todo',
@@ -15,11 +17,24 @@ export class TodoComponent {
    * La liste des todos à afficher
    */
   todos: Todo[] = this.todoService.getTodos();
+
+  todosDto: TodoDto[] = [];
+
+  todosDto$: Observable<TodoDto[]> ;
   /**
    * Le todo à ajouter
    */
   todo = new Todo();
-  constructor() {}
+  constructor() {
+    // V2, préférez ca mais au début commencer par V1
+    this.todosDto$ = this.todoService.getTodosFromApi();
+    // V1
+    this.todoService.getTodosFromApi().subscribe({
+      next: (mesTodosFromApi: TodoDto[]) => {
+        this.todosDto = mesTodosFromApi;
+      },
+    });
+  }
 
   addTodo() {
     this.todoService.addTodo(this.todo);

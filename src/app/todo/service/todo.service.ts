@@ -1,6 +1,10 @@
 import { inject, Injectable } from "@angular/core";
 import { Todo } from "../model/todo";
 import { LoggerService } from "src/app/services/logger.service";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { TodoDto } from "../dto/todo.dto";
+import { APP_API } from "src/app/config/app-api.config";
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +19,8 @@ export class TodoService {
 
   loggerService =  inject(LoggerService);
   // constructor(private loggerService: LoggerService) {}
+
+  http = inject(HttpClient);
 
   /**
    * elle retourne la liste des todos
@@ -56,5 +62,14 @@ export class TodoService {
    */
   logTodos() {
     this.loggerService.logger(this.#todos);
+  }
+
+  /**
+   * Aller chercher dans notre API la liste des TODO
+   * FLUX
+   * @returns Observable<TodoDto>
+   */
+  getTodosFromApi(): Observable<TodoDto[]> {
+    return this.http.get<TodoDto[]>(APP_API.todo);
   }
 }
